@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammadou Rida | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="pic/icon_title.png">
+    <!-- جديد: يفعّل أنيميشن الظهور فقط إذا كان JavaScript يعمل -->
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+    <!-- جديد: أيقونات SVG مخزّنة مرة واحدة وتُستدعى بـ <use> (بدون مكتبات خارجية) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3zM3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="currentColor"/></symbol>
+    </svg>
+
+    <div class="main">
+
+        <!-- ========== Navigation ========== -->
+        <nav class="navbar">
+            <a class="logo" href="#about"><img class="r_Logo" src="pic/R_debut.png" alt="Logo R">Rida<span class="my-span">.dev</span></a>
+
+            <!-- جديد: زر القائمة للهاتف -->
+            <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+
+            <ul class="nav-links">
+                <li><a href="#about" class="active">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- ========== Hero ========== -->
+            <header class="hero" id="about">
+                <div class="hero-content">
+                    <p class="tag">Bienvenue sur mon portfolio , Je suis <span>Hammadou Rida</span></p>
+                    <h1>Étudiant en <span>M</span>athématiques <br> &amp; Passionné d'<span>A</span>strophysique</h1>
+                    <h3>Passionné par les mathématiques appliquées, la mécanique céleste <br> et le développement web (HTML/CSS).</h3>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">Voir mes projets</a>
+                        <a href="CV_Rida_Hammadou.pdf" class="btn" download>Télécharger CV</a>
+                    </div>
+                </div>
+
+                <!-- الصورة: PNG شفاف حقيقي (المربع الأخضر + الإطار الداكن داخل الصورة نفسها) -->
+                <div class="image">
+                    <img src="pic/maphoto.png" alt="Portrait de Hammadou Rida" class="maph">
+                </div>
+            </header>
+
+            <!-- ========== Stats ========== -->
+            <section class="stats">
+                <div class="reveal"><strong><em>+1</em> Olympiade</strong><span>IOAA</span></div>
+                <div class="reveal"><strong>Projets Front-End</strong><span>HTML5/CSS3</span></div>
+                <div class="reveal"><strong>Papiers LaTeX</strong><span>Scientific Reports</span></div>
+            </section>
+
+            <!-- ========== Skills ========== -->
+            <section class="section" id="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <article class="card reveal">
+                        <h3>Développement Front-End</h3>
+                        <ul class="tiles">
+                            <li><span class="tile" style="--c:#e44d26">H5</span>HTML5</li>
+                            <li><span class="tile" style="--c:#2965f1">C3</span>CSS3</li>
+                            <li><span class="tile" style="--c:#e6b800">JS</span>JavaScript</li>
+                        </ul>
+                    </article>
+                    <article class="card reveal">
+                        <h3>Programming &amp; Tools</h3>
+                        <ul class="tiles">
+                            <li><span class="tile" style="--c:#3776ab">Py</span>Python</li>
+                            <li><span class="tile" style="--c:#f05032">Git</span>Git/GitHub</li>
+                            <li><span class="tile" style="--c:#008080">Tx</span>LaTeX</li>
+                        </ul>
+                    </article>
+                    <article class="card reveal">
+                        <h3>Maths &amp; Astrophysique</h3>
+                        <ul class="tiles">
+                            <li><span class="tile" style="--c:#1f8a4c">△</span>Géométrie</li>
+                            <li><span class="tile" style="--c:#16201a">∫</span>Mécanique</li>
+                            <li><span class="tile" style="--c:#d9534f">☉</span>Astrophysique</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ========== Projects ========== -->
+            <section class="section" id="projects">
+                <h2>Projets</h2>
+                <div class="projects-grid">
+                    <article class="card project reveal">
+                        <div class="thumb"><div class="paper"><b></b></div></div>
+                        <h3>Astronomical Data Reports</h3>
+                        <p>Analyse du système Mizar A+B : incertitudes indépendantes, propagation quadratique, tableaux et graphiques.</p>
+                        <a class="more" href="reports/ioaa-2014.html">Voir le rapport</a>
+                    </article>
+                    <article class="card project reveal">
+                        <div class="thumb thumb--green"><div class="mini"><i></i><i></i></div></div>
+                        <h3>Portfolio Website</h3>
+                        <p>Portfolio responsive en HTML5, CSS3 et JavaScript, conçu à partir d'une maquette.</p>
+                        <a class="more" href="https://github.com/rida-hm1" target="_blank" rel="noopener">Voir sur GitHub</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- ========== Contact ========== -->
+            <section class="section" id="contact">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <ul class="info reveal">
+                        <li><span class="ico"><svg><use href="#i-pin"/></svg></span><div><small>Localisation</small>Bejaia, Algérie</div></li>
+                        <li><span class="ico"><svg><use href="#i-mail"/></svg></span><div><small>Email</small><a href="mailto:ridahammadou2027@gmail.com">ridahammadou2027@gmail.com</a></div></li>
+                        <li><span class="ico"><svg><use href="#i-phone"/></svg></span><div><small>Téléphone</small><a href="tel:+213668155318">+213 668 155 318</a></div></li>
+                        <li><span class="ico"><svg><use href="#i-github"/></svg></span><div><small>GitHub</small><a href="https://github.com/rida-hm1" target="_blank" rel="noopener">rida-hm1</a></div></li>
+                    </ul>
+
+                    <!-- النموذج يفتح تطبيق البريد عبر mailto (انظر script.js) -->
+                    <form class="form reveal">
+                        <input name="prenom" type="text" placeholder="Prénom" aria-label="Prénom" required>
+                        <input name="nom" type="text" placeholder="Nom" aria-label="Nom">
+                        <input name="email" type="email" placeholder="Adresse email" aria-label="Adresse email" required>
+                        <input name="tel" type="tel" placeholder="Téléphone" aria-label="Téléphone">
+                        <textarea name="message" rows="5" placeholder="Message" aria-label="Message" required></textarea>
+                        <button type="submit" class="btn primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- ========== Footer ========== -->
+        <footer class="footer">
+            <span>© 2026 Rida.dev | Hammadou Rida</span>
+            <div class="socials socials--row">
+                <a href="https://github.com/rida-hm1" aria-label="GitHub" target="_blank" rel="noopener"><svg><use href="#i-github"/></svg></a>
+                <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg><use href="#i-linkedin"/></svg></a>
+                <a href="mailto:ridahammadou2027@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

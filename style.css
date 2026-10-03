@@ -1,0 +1,197 @@
+/* ===== 1. المتغيرات والأساسيات (ألوان موقعك الأصلي) ===== */
+:root {
+    --green: #1f8a4c;
+    --dark: rgb(36, 32, 30);
+    --slate: darkslategray;
+    --orange: rgb(230, 104, 59);
+    --blue: rgb(59, 174, 209);
+    --muted: #4b5a52;
+    --line: #dcebe2;
+    --pad: clamp(20px, 7vw, 90px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+/* الخلفية على body لتغطي كل الأقسام (تعديل: كانت على .main بارتفاع 100vh) */
+body {
+    font-family: sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background: #dff3e6 url(pic/bg.jpg) center / cover fixed;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+svg { width: 1em; height: 1em; fill: currentColor; }
+:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+
+/* ===== 2. Navbar ===== */
+.navbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px var(--pad);
+    background: rgba(236, 249, 241, .8);
+    backdrop-filter: blur(8px);
+}
+.logo { display: flex; align-items: center; gap: 10px; font-size: 26px; font-weight: 700; color: #1c1c1c; }
+.logo .r_Logo { width: 44px; height: auto; }   /* الشعار PNG شفاف: pic/R_debut.png */
+.logo span { color: var(--green); font-weight: 600; margin-left: -9px; }
+
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links a { display: block; padding: 10px 16px; font-size: 16px; font-weight: bold; text-transform: uppercase; color: var(--slate); transition: .4s ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--orange); }   /* نفس السلوك لكل الروابط: برتقالي عند hover أو عند التمرير على قسمه */
+
+.burger { display: none; width: 42px; height: 42px; border: 0; background: none; cursor: pointer; }
+.burger span, .burger span::before, .burger span::after {
+    content: ""; display: block; width: 24px; height: 2.5px; background: var(--dark);
+    border-radius: 2px; margin: auto; position: relative; transition: .3s;
+}
+.burger span::before { position: absolute; top: -7px; left: 0; }
+.burger span::after  { position: absolute; top: 7px; left: 0; }
+.burger[aria-expanded="true"] span { background: transparent; }
+.burger[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.burger[aria-expanded="true"] span::after  { top: 0; transform: rotate(-45deg); }
+
+/* ===== 3. الأزرار (نفس أسلوبك: داكن ثم أزرق عند hover) ===== */
+.btn { display: inline-block; padding: 10px 18px; border: 0; border-radius: 10px; background: var(--dark); color: #fff; font: inherit; cursor: pointer; transition: background .4s ease, transform .3s ease, box-shadow .3s ease; }
+.btn:hover { background: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(59, 174, 209, .35); }
+
+/* ===== 4. Hero ===== */
+.hero {
+    display: grid; grid-template-columns: 1.3fr .7fr; align-items: center; gap: 30px;
+    min-height: calc(100vh - 78px); padding: 20px var(--pad) 40px;
+}
+.hero-content .tag { font-family: monospace; font-size: 20px; font-weight: 200; }
+.hero-content h1 { font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.15; color: var(--dark); }
+.hero-content h1 span, .hero-content .tag span { color: var(--green); }
+.hero-content h3 { margin-top: 10px; font-size: 18px; letter-spacing: 1px; line-height: 24px; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+
+/* الصورة PNG شفافة حقيقية (لا حاجة لـ multiply)، وتتحرك عند hover كما في كودك القديم */
+.image { justify-self: center; width: min(100%, 420px); }
+.image img { width: 100%; height: auto; transition: transform 1.2s ease; }
+.image:hover img { transform: translateX(6%); }
+
+/* ===== 5. Stats ===== */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); padding: 10px var(--pad) 30px; }   /* نفس هامش الـ Hero لتتطابق الحواف */
+.stats > div { padding: 0 24px; border-left: 2px solid rgba(31, 138, 76, .3); }
+.stats > div:first-child { padding-left: 0; border: 0; }
+.stats strong { display: block; font-size: clamp(1.05rem, 2.4vw, 1.5rem); line-height: 1.2; }
+.stats em { font-style: normal; color: var(--green); }
+.stats span { color: var(--muted); font-size: .95rem; }
+
+/* ===== 6. الأقسام والبطاقات ===== */
+.section { padding: 36px var(--pad); }
+.section > h2 { font-size: 1.8rem; margin-bottom: 20px; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }   /* مشروعان فقط الآن */
+
+.card {
+    background: rgba(255, 255, 255, .88); border: 1px solid var(--line); border-radius: 12px; padding: 20px;
+    box-shadow: 0 4px 14px rgba(22, 32, 26, .07);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+.card:hover { transform: translateY(-8px); border-color: var(--green); box-shadow: 0 16px 32px rgba(31, 138, 76, .2); }
+.card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+
+.tiles { display: flex; gap: 18px; flex-wrap: wrap; }
+.tiles li { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: .78rem; color: var(--muted); }
+.tile { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px; background: var(--c); color: #fff; font-weight: 700; font-size: 1rem; transition: transform .3s; }
+.card:hover .tile { transform: rotate(-6deg) scale(1.08); }
+
+.thumb { height: 150px; margin-bottom: 14px; border-radius: 8px; background: #eef7f1; overflow: hidden; display: grid; place-items: center; }
+.thumb > * { transition: transform .5s ease; }
+.project:hover .thumb > * { transform: scale(1.08); }
+.paper { width: 70%; height: 130px; padding: 10px; background: #fff; border: 1px solid var(--line); box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+    background-image: repeating-linear-gradient(#fff 0 6px, #d7dfda 6px 7px); background-clip: content-box; }
+.paper b { display: block; height: 8px; width: 60%; margin: 0 auto 8px; background: var(--dark); }
+.thumb--green { background: var(--green); }
+.mini { width: 80%; height: 100px; padding: 12px; display: flex; flex-direction: column; gap: 8px; background: #fff; border-radius: 6px; }
+.mini i { display: block; height: 10px; width: 60%; border-radius: 4px; background: var(--green); }
+.mini i + i { width: 90%; height: 40px; background: var(--line); }
+.project p { font-size: .9rem; color: var(--muted); }
+.more { display: inline-block; margin-top: 12px; font-weight: bold; color: var(--green); transition: transform .3s, color .3s; }
+.more::after { content: " →"; }
+.more:hover { transform: translateX(5px); color: var(--orange); }
+
+/* ===== 7. Contact ===== */
+.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 36px; }
+.info { display: grid; gap: 14px; align-content: start; }
+.info li { display: flex; align-items: center; gap: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.info small { display: block; color: var(--muted); font-weight: 400; }
+.info a:hover { color: var(--orange); }
+.ico { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 10px; background: var(--green); color: #fff; font-size: 20px; transition: transform .3s; }
+.info li:hover .ico { transform: scale(1.1) rotate(-5deg); }
+
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form input, .form textarea { width: 100%; padding: 12px 14px; font: inherit; color: var(--dark); border: 1px solid #cfe1d6; border-radius: 8px; background: rgba(255, 255, 255, .92); transition: border-color .3s, box-shadow .3s; }
+.form input:focus, .form textarea:focus { outline: 0; border-color: var(--green); box-shadow: 0 0 0 3px rgba(31, 138, 76, .18); }
+.form textarea { grid-column: 1 / -1; resize: vertical; }
+.form button { grid-column: 1 / -1; justify-self: end; }
+
+/* ===== 8. Footer ===== */
+.footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; padding: 20px var(--pad); border-top: 1px solid rgba(31, 138, 76, .25); color: var(--muted); font-size: .9rem; }
+.socials { display: flex; gap: 12px; }
+.socials a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--dark); font-size: 18px; transition: .3s; }
+.socials a:hover { background: var(--dark); color: #fff; transform: translateY(-3px); }
+
+/* ===== 9. الأنيميشن =====
+   الظهور عند التمرير يعمل فقط إذا كان JS مفعّلاً (الصنف .js على <html>) */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .reveal.in.card:hover { transform: translateY(-8px); }
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } }
+.hero-content { animation: rise .9s ease both; }
+.image { animation: rise .9s .2s ease both; }
+
+/* ===== 9.5 صفحة البوابة (reports/ioaa-2014.html) ===== */
+/* رابط مستقل خارج .nav-links حتى يبقى ظاهراً دائماً على الهاتف (بدون زر burger) */
+.back-link { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: bold; text-transform: uppercase; color: var(--orange); }
+.back-link svg { width: 18px; height: 18px; }
+.back-link:hover { color: var(--dark); }
+.report-head h2 { margin-bottom: 14px; }
+.report-head p { max-width: 760px; color: var(--muted); margin-bottom: 20px; }
+.report-head .btn { display: inline-flex; align-items: center; gap: 8px; }
+.report-head .btn svg { width: 18px; height: 18px; }
+.report-view { padding-top: 0; }
+.pdf-frame { width: 100%; height: 85vh; min-height: 480px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.pdf-fallback { margin-top: 10px; font-size: .9rem; color: var(--muted); }
+.pdf-fallback a { color: var(--green); font-weight: bold; }
+@media (max-width: 760px) {
+    .pdf-frame { height: 70vh; }
+    .back-link { font-size: 12px; text-align: right; line-height: 1.3; }
+}
+
+/* ===== 10. التجاوب ===== */
+@media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr 0.8fr; gap: 16px; }
+    .hero-content h3 br { display: none; }
+    .skills-grid { gap: 14px; }
+    .card { padding: 16px; }
+    .tiles { gap: 12px; }
+    .contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+    .burger { display: block; }
+    .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--pad) 16px;
+        background: rgba(255, 255, 255, .97); box-shadow: 0 16px 24px rgba(0, 0, 0, .08);
+        opacity: 0; visibility: hidden; transform: translateY(-10px); transition: .3s;
+    }
+    .nav-links.open { opacity: 1; visibility: visible; transform: none; }
+
+    .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 36px; text-align: center; }
+    .hero-content .tag { font-size: 16px; }
+    .hero-buttons { justify-content: center; }
+    .image { width: min(78%, 340px); }
+
+    .stats { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+    .stats > div, .stats > div:first-child { padding: 0; border: 0; }
+    .skills-grid, .projects-grid, .form { grid-template-columns: 1fr; }
+    .form button { justify-self: stretch; }
+    .footer { justify-content: center; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
+}

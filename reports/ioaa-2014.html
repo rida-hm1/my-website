@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOAA 2014 — Data Analysis | Rida.dev</title>
+    <!-- ملاحظة: هذا الملف داخل reports/ لذلك كل المسارات ترجع خطوة للخلف (../) -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../pic/icon_title.png">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    </svg>
+
+    <div class="main">
+        <!-- ========== Navigation (مبسّطة لصفحة البوابة) ========== -->
+        <nav class="navbar">
+            <a class="logo" href="../index.html#projects"><img class="r_Logo" src="../pic/R_debut.png" alt="Logo R">Rida<span class="my-span">.dev</span></a>
+            <a href="../index.html#projects" class="back-link"><svg><use href="#i-back"/></svg> Retour aux projets</a>
+        </nav>
+
+        <main>
+            <!-- ========== En-tête du rapport ========== -->
+            <section class="section report-head">
+                <h2>IOAA 2014 — Data Analysis</h2>
+                <p>Guide de solution complet, étape par étape, des trois problèmes de l'épreuve d'analyse de données de l'IOAA 2014 : trou noir au centre de la Galaxie, test thermodynamique sur deux exoplanètes, et un observateur sur une planète de Sirius (incluant le système de Mizar).</p>
+                <a class="btn" href="IOAA-2014-Data-Analysis.pdf" download><svg><use href="#i-download"/></svg> Télécharger le PDF</a>
+            </section>
+
+            <!-- ========== Visionneuse PDF ========== -->
+            <section class="section report-view">
+                <!-- iframe أكثر توافقاً من embed عبر المتصفحات (خصوصاً على الهاتف) -->
+                <iframe src="IOAA-2014-Data-Analysis.pdf" class="pdf-frame" title="IOAA 2014 Data Analysis PDF"></iframe>
+                <!-- جديد: نص احتياطي يظهر فقط إذا فشل عرض الـ PDF داخل الصفحة (بعض متصفحات الهاتف) -->
+                <p class="pdf-fallback">Si l'aperçu ne s'affiche pas ici, <a href="IOAA-2014-Data-Analysis.pdf" target="_blank" rel="noopener">ouvrez le PDF dans un nouvel onglet</a>.</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <span>© 2026 Rida.dev | Hammadou Rida</span>
+        </footer>
+    </div>
+</body>
+</html>
